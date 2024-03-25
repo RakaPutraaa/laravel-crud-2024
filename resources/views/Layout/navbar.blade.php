@@ -19,10 +19,19 @@
                 <a class="nav-link" href="{{ route('pelatihan') }}">Pelatihan</a>
             </li>
         </ul>
-        <form class="d-flex">
-
-            <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
+            <div class="btn-group">
+                <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                  {{ Auth::user()->name }}
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Profile</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <li><button class="dropdown-item" type="submit" >Logout</button></li>
+                  </form>
+                </ul>
+              </div>
         </div>
     </div>
 </nav>
