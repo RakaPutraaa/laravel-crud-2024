@@ -9,14 +9,23 @@
             <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="#">Home</a>
             </li>
+            @if (Auth::user()->level == 'SuperAdmin')
             <li class="nav-item">
             <a class="nav-link" href="{{ route('kategori') }}">Kategori</a>
             </li>
+
+            @elseif (Auth::user()->level == 'Admin')
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('berita') }}">Berita</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('pelatihan') }}">Pelatihan</a>
+            </li>
+
+            @endif
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('user') }}">User</a>
             </li>
         </ul>
             <div class="btn-group">
@@ -24,7 +33,7 @@
                   {{ Auth::user()->name }}
                 </button>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Profile</a></li>
+                  <li><a class="dropdown-item" href="{{ route('user-edit', Auth::user()->id) }}">Profile</a></li>
                   <li><hr class="dropdown-divider"></li>
                   <form action="{{ route('logout') }}" method="POST">
                     @csrf
