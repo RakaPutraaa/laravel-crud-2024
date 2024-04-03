@@ -7,6 +7,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\PelatihanController;
+use App\Http\Controllers\KatPelatihanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,6 +50,14 @@ Route::middleware(['auth'])->group(function() {
         Route::post('/user-insert', [UserController::class, 'insert'])->name('user-insert');
         Route::post('/user-update/{id}', [UserController::class, 'update'])->name('user-update');
         Route::get('/user-delete/{id}', [UserController::class, 'delete'])->name('user-delete');
+
+        //kategori pelatihan
+        Route::get('/kategori-pelatihan', [KatPelatihanController::class, 'index'])->name('kategori-pelatihan-home');
+        Route::get('/kategori-pelatihan-tambah', [KatPelatihanController::class, 'tambah'])->name('kategori-pelatihan-tambah');
+        Route::get('/kategori-pelatihan-edit/{id}', [KatPelatihanController::class, 'edit'])->name('kategori-pelatihan-edit');
+        Route::post('/kategori-pelatihan-insert', [KatPelatihanController::class, 'insert'])->name('kategori-pelatihan-insert');
+        Route::post('/kategori-pelatihan-update/{id}', [KatPelatihanController::class, 'update'])->name('kategori-pelatihan-update');
+        Route::get('/kategori-pelatihan-delete/{id}', [KatPelatihanController::class, 'delete'])->name('kategori-pelatihan-delete');
     });
 
     Route::middleware(['admin'])->group(function() {

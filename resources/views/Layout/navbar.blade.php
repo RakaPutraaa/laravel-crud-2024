@@ -13,6 +13,9 @@
             <li class="nav-item">
             <a class="nav-link" href="{{ route('kategori') }}">Kategori</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('kategori-pelatihan-home') }}">Kategori Pelatihan</a>
+            </li>
 
             @elseif (Auth::user()->level == 'Admin')
             <li class="nav-item">

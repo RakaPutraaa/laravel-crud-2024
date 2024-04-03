@@ -4,6 +4,19 @@
 <form action="{{ route('pelatihan-insert') }}" method="post" enctype="multipart/form-data">
     @csrf
     <div class="mb-3">
+        <label class="form-label">Kategori Pelatihan</label>
+        <select name="kategori_pelatihan" id="">
+            <option value="">- Pilih Kategori Pelatihan -</option>
+            @foreach ($kat_pelatihan as $data)
+                <option value="{{ $data->id }}">{{ $data->kategori_pelatihan }}</option>
+            @endforeach
+        </select>
+        <div class="text-danger">
+          @error('kategori_pelatihan')
+              {{ $message  }}
+          @enderror
+    </div>
+    <div class="mb-3">
       <label class="form-label">Judul Pelatihan</label>
       <input type="text" class="form-control" name="judul" placeholder="Masukkan Judul Pelatihan ..." value="{{ old('judul') }}"">
       <div class="text-danger">

@@ -11,7 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::create('kat_pelatihans', function (Blueprint $table) {
+            $table->id();
+            $table->string('kategori_pelatihan', 255);
+            $table->dateTime('jam_pelatihan');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -19,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('kat_pelatihans');
     }
 };

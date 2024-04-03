@@ -9,11 +9,17 @@ use Illuminate\Support\Facades\DB;
 class Pelatihan extends Model
 {
     public function TampilData() {
-        return DB::table('pelatihans')->get();
+        return DB::table('pelatihans')
+        ->select('*', 'pelatihans.id as id')
+        ->join('kat_pelatihans', 'pelatihans.id_kat_pelatihan', 'kat_pelatihans.id')
+        ->get();
     }
 
     public function DetailData($id) {
-        return DB::table('pelatihans')->where('id', $id)->first();
+        return DB::table('pelatihans')
+        ->select('*', 'pelatihans.id as id')
+        ->join('kat_pelatihans', 'pelatihans.id_kat_pelatihan', 'kat_pelatihans.id')
+        ->where('pelatihans.id', $id)->first();
     }
 
     public function TambahData($data) {

@@ -10,8 +10,10 @@
     <thead>
       <tr>
         <th scope="col">No</th>
+        <th scope="col">Kategori Pealatihan</th>
         <th scope="col">Nama Pealatihan</th>
         <th scope="col">Tanggal Pelatihan</th>
+        <th scope="col">Jam Pealatihan</th>
         <th scope="col">Gambar Pelatihan</th>
         <th scope="col">Deskripsi</th>
         <th scope="col">Aksi</th>
@@ -22,8 +24,10 @@
 
         <tr>
             <td>{{ $no+1 }}</td>
+            <td>{{ $data->kategori_pelatihan }}</td>
             <td>{{ $data->nama_pelatihan }}</td>
             <td>{{ date('d M Y', strtotime($data->tanggal_pelatihan))}}</td>
+            <td>{{ $data->jam_pelatihan }}</td>
             <td>
                 <img src="{{ url('foto/', $data->gambar_pelatihan) }}" alt="" width="100">
             </td>
