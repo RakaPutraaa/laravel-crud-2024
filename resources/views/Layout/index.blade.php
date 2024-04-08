@@ -1,4 +1,5 @@
 @include('Layout.header')
-@include('Layout.navbar')
+@include('Layout.slidebar')
+@include('Layout.topbar')
 @yield('content')
 @include('Layout.footer')

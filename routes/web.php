@@ -36,13 +36,7 @@ Route::middleware(['auth'])->group(function() {
     Route::get('/', [HomeController::class, 'index'])->name('home');
 
     Route::middleware(['superadmin'])->group(function() {
-        //kategori
-        Route::get('/kategori', [KategoriController::class, 'index'])->name('kategori');
-        Route::get('/kategori-tambah', [KategoriController::class, 'tambah'])->name('kategori-tambah');
-        Route::get('/kategori-edit/{id}', [KategoriController::class, 'edit'])->name('kategori-edit');
-        Route::post('/kategori-insert', [KategoriController::class, 'insert'])->name('kategori-insert');
-        Route::post('/kategori-update/{id}', [KategoriController::class, 'update'])->name('kategori-update');
-        Route::get('/kategori-delete/{id}', [KategoriController::class, 'delete'])->name('kategori-delete');
+
 
         Route::get('/user', [UserController::class, 'index'])->name('user');
         Route::get('/user-tambah', [UserController::class, 'tambah'])->name('user-tambah');
@@ -61,6 +55,13 @@ Route::middleware(['auth'])->group(function() {
     });
 
     Route::middleware(['admin'])->group(function() {
+                //kategori
+                Route::get('/kategori', [KategoriController::class, 'index'])->name('kategori');
+                Route::get('/kategori-tambah', [KategoriController::class, 'tambah'])->name('kategori-tambah');
+                Route::get('/kategori-edit/{id}', [KategoriController::class, 'edit'])->name('kategori-edit');
+                Route::post('/kategori-insert', [KategoriController::class, 'insert'])->name('kategori-insert');
+                Route::post('/kategori-update/{id}', [KategoriController::class, 'update'])->name('kategori-update');
+                Route::get('/kategori-delete/{id}', [KategoriController::class, 'delete'])->name('kategori-delete');
         //berita
         Route::get('/berita', [BeritaController::class, 'index'])->name('berita');
         Route::get('/berita-detail/{id}', [BeritaController::class, 'detail'])->name('berita-detail');
